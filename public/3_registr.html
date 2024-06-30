@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Реєстрація</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <!-- блок з header -->
+    <header class="container">
+        <span class="logo">EXPLORE U</span>
+        <div class="info">
+            <a href="1_main.html#about-site" class="active">ПРО САЙТ</a>
+            <a href="http://localhost:3000/2_gallery.html">ГАЛЕРЕЯ</a>
+            <a href="1_main.html#news">НОВИНИ</a>
+            <a href="#" id="contacts-link">КОНТАКТИ</a>
+            <a href="3_registr.html">ЗАРЕЄСТРУВАТИСЯ</a>
+        </div>
+        <div class="hamburger-menu">
+            <img src="image/hamburger-icon.png" alt="Menu">
+        </div>
+    </header>
+
+    <!-- Мобільне меню -->
+    <div class="mobile-menu">
+        <div class="menu-header">
+            <span class="logo">EXPLORE U</span>
+            <span class="close">&times;</span>
+        </div>
+        <nav class="mobile-nav">
+            <a href="1_main.html#about-site" class="active">ПРО САЙТ</a>
+            <a href="http://localhost:3000/2_gallery.html">ГАЛЕРЕЯ</a>
+            <a href="1_main.html#news">НОВИНИ</a>
+            <a href="#" id="contacts-link-mobile">КОНТАКТИ</a>
+            <a href="3_registr.html">ЗАРЕЄСТРУВАТИСЯ</a>
+        </nav>
+    </div>
+
+    <!-- Контакти -->
+    <div id="contacts-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Контакти</h2>
+            <p>Телефон: +380 98 85 ** ***</p>
+            <p>Email: info@example.com</p>
+            <p>Адреса: м. Полтава ♥</p>
+        </div>
+    </div>
+
+    <!-- Прямокутник форма реєстрації -->
+    <div class="registration-box">
+        <p>ВЖЕ РЕЄСТРУЮСЯ :)</p>
+        <form id="registrationForm" action="/register" method="POST" autocomplete="on">
+            <div class="form-group">
+                <label for="username">ПРІЗВИЩЕ ТА ІМ’Я</label>
+                <input type="text" id="username" name="username" autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="text" id="email" name="email" autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="userpassword">ПАРОЛЬ</label>
+                <input type="text" id="userpassword" name="userpassword" autocomplete="new-password">
+            </div>
+            <button type="submit" class="btn btn-dark btn-block">ВЖЕ РАЗОМ З ВАМИ</button>
+        </form>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <p class="footer-text">Made by ANASTASIIA KURYLEKH
+            <br>POLTAVA 2024
+            <div class="image_icons">
+                <a href="https://www.facebook.com/?locale=uk_UA"><img src="image/facebook.png" alt="Facebook" width="35" height="35"></a>
+                <a href="https://www.instagram.com/ukrainer_net/"><img src="image/instagram.png" alt="Instagram" width="30" height="30"></a>
+                <a href="https://www.youtube.com/@ukrainernet"><img src="image/youtube.png" alt="YouTube" width="35" height="35"></a>
+            </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const modal = document.getElementById('contacts-modal');
+            const btn = document.getElementById('contacts-link');
+            const btnMobile = document.getElementById('contacts-link-mobile');
+            const spans = document.getElementsByClassName('close');
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            // Відкриття модального вікна "Контакти" при натисканні на посилання
+            if (btn) {
+                btn.onclick = function(event) {
+                    event.preventDefault();
+                    modal.style.display = 'block';
+                    mobileMenu.style.display = 'none'; // Закриття мобільного меню після відкриття вікна "Контакти"
+                }
+            }
+
+            // Відкриття модального вікна "Контакти" при натисканні на посилання у мобільному меню
+            if (btnMobile) {
+                btnMobile.onclick = function(event) {
+                    event.preventDefault();
+                    modal.style.display = 'block';
+                    mobileMenu.style.display = 'none'; // Закриття мобільного меню після відкриття вікна "Контакти"
+                }
+            }
+
+            // Закриття модального вікна "Контакти" при натисканні на кнопку "Закрити" або хрестик
+            Array.from(spans).forEach(span => {
+                span.onclick = function() {
+                    modal.style.display = 'none';
+                    mobileMenu.style.display = 'none'; // Закриття мобільного меню при натисканні на закриття
+                }
+            });
+
+            // Закриття модального вікна "Контакти" при натисканні на область поза вікном
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    mobileMenu.style.display = 'none'; // Закриття мобільного меню при натисканні поза вікном
+                }
+            };
+
+            // Відкриття та закриття мобільного меню при натисканні на гамбургер
+            if (hamburger) {
+                hamburger.onclick = function() {
+                    if (mobileMenu.style.display === 'block') {
+                        mobileMenu.style.display = 'none';
+                    } else {
+                        mobileMenu.style.display = 'block';
+                    }
+                }
+            }
+            
+             // Додавання обробника для форми реєстрації
+             document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = {
+                    username: document.getElementById('username').value,
+                    email: document.getElementById('email').value,
+                    userpassword: document.getElementById('userpassword').value
+                };
+
+                fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Дякуємо за реєстрацію!');
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Помилка:', error);
+                    alert('Сталася помилка. Спробуйте ще раз пізніше.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

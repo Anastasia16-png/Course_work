@@ -1,0 +1,341 @@
+.container {
+    display: flex;
+    justify-content: space-between; /* простір між лого та інфоблоком */
+    background-color: rgba(255, 255, 255, 0.9); 
+    height: 80px; 
+    padding-left: 70px; 
+    padding-right: 70px; 
+    position: fixed; 
+    top: 30px; 
+    left: 90px; 
+    right: 90px; 
+    z-index: 1000; 
+    border: 2px solid black;
+}       
+.logo {
+    padding-top: 24px; 
+    color: #000000; 
+    font-family: "Red Hat Text";
+    font-weight: bold; 
+    margin-left: 70px; 
+    font-size: 25px;
+}
+.info {
+    margin-right: 70px; 
+    padding-top: 29px; 
+}
+.info a {
+    margin-left: 40px; 
+    font-family: "Nunito"; 
+    font-size: 17;
+    color: #000000;
+    text-decoration: none; 
+}
+/* Стилі для форми реєстрації */
+.registration-box {
+    border: 2px solid #000; 
+    width: 650px; 
+    height: 350px; 
+    padding-bottom: 50px;
+    margin: 50px auto; 
+    margin-top: 150px; 
+    margin-bottom: 50px; 
+}
+.registration-box p {
+    margin-top: 50px;
+    margin-left: 238px;
+    margin-bottom: 50px;
+}
+.form-group {
+    margin-bottom: 20px; 
+    position: relative; 
+}
+label {
+    width: 250px; 
+    text-align: left; 
+    position: absolute; 
+    left: 70px; 
+    top: 50%; 
+    transform: translateY(-50%); /* компенсуємо вертикальне центрування */
+    font-family: "Nunito"; 
+    font-size: 17px;
+}
+input[type="text"] { 
+    width: 250px; 
+    height: 20px;
+    margin-left: 380px;
+    margin-right: 70px;
+    border: 2px solid #000;
+    font-family: Notino;
+}
+button {
+    width: 210px; 
+    height: 30px;
+    padding: 5px; 
+    border: 2px solid black;
+    background-color: white; 
+    color: black; 
+    cursor: pointer; 
+    font-family: "Nunito"; 
+    font-size: 17px;
+    margin-left: 220px;
+    margin-top: 50px;
+}
+button:hover {
+    background-color: #474646; 
+    color: #ffffff;
+}
+/*footer*/
+.footer {
+    background-color: #474646; 
+    height: 135px; 
+    color: #ffffff; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 88px; 
+    position: relative;
+}
+.footer-text {
+    position: absolute; 
+    left: 88px;
+    font-size: 17px; 
+    font-weight: medium; 
+    font-family: "Nunito";
+}
+.image_icons {
+    display: flex; 
+    justify-content: center; 
+    margin: 0 550px; 
+}
+.image_icons a {
+    margin: 0 30px; 
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.4); 
+    font-family: "Nunito";
+}
+.modal h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+/* Стилі для вмісту модального вікна */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+    animation: fadeIn 0.3s; 
+}
+/* Стилі для кнопки закриття */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Анімація появи вікна */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Стилі для гамбургер меню */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.hamburger-menu img {
+    width: 24px;
+    height: 17px;
+}
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    padding-top: 100px; 
+}
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+.mobile-menu .logo {
+    font-family: "Red Hat Text";
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px; 
+}
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 80px; 
+}
+
+.mobile-nav a {
+    font-family: "Nunito";
+    font-size: 17px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    margin: 20px 0; 
+    text-align: center;
+}
+.mobile-menu .close {
+    font-size: 24px;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .info {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+        margin-top: 26px;
+        margin-right: 15px;
+    }
+    .container {
+        width: calc(100% - 82px);
+        height: 70px;
+        left: 20px;
+        right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    .logo {
+        margin-left: 15px;
+        margin-bottom: 20px;
+    }
+    .mobile-menu .close {
+        font-size: 24px;
+        cursor: pointer;
+        align-self: flex-end; /* Розміщення на краю вправо */
+        margin-right: 40px; 
+        top: 0px;
+    }
+    .modal-content {
+        width: 80%; 
+        margin: 50% auto; 
+    }
+    /*саме вікно реєстр*/
+    .registration-box {
+        width: calc(100% - 35px); /* ширина форми та відступи зліва і справа */
+        margin: 150px 20px;
+        margin-top: 150px;
+        margin-bottom: 50px;
+    }
+    .registration-box p {
+        font-size: 14px; 
+        margin-top: 50px; 
+        margin-left: calc((100% - 145px) / 2); /* відступ зліва для центрування */
+        margin-right: calc((100% - 145px) / 2);
+    }
+    .form-group {
+        margin-bottom: 15px; 
+    }
+    label {
+        font-size: 14px; 
+        left: 15px; 
+        width: 130px;
+    }
+    input[type="text"] {
+        width: calc(100% - 180px); 
+        margin-right: calc((100% - 130px) / 2);
+        margin-left: 160px;
+        font-size: 14px; 
+    }
+    button {
+        width: 185px; 
+        margin-left: calc((100% - 185px) / 2); 
+        margin-right: calc((100% - 185px) / 2); 
+        font-size: 14px;
+    }
+    .footer {
+        margin-top: 50px;
+    }
+    .footer-text {
+        font-size: 15px; 
+        margin-bottom: 0;
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+}
+@media (max-width: 1200px) {
+    .info {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+        margin-top: 26px;
+        margin-right: 15px;
+    }
+    .container {
+        width: calc(100% - 82px);
+        height: 70px;
+        left: 20px;
+        right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    .logo {
+        margin-left: 15px;
+        margin-bottom: 20px;
+    }
+    .mobile-menu .close {
+        font-size: 24px;
+        cursor: pointer;
+        align-self: flex-end; 
+        margin-right: 40px; 
+        top: 0px;
+    }
+    .modal-content {
+        width: 80%; 
+        margin: 50% auto; 
+    }
+}
+@media (max-width: 1400px) {
+    .info a {
+        font-size: 14px; 
+        margin-right: 10px; 
+    }
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

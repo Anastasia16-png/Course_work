@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туристичні місця України</title>
+    <!-- Підключення Bootstrap CSS з BootstrapCDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!--файл стилів -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Rose&display=swap">
+</head>
+<body>
+        <!-- блок з header -->
+    <header class="container">
+        <span class="logo">EXPLORE U</span>
+        <div class="info">
+            <a href="1_main.html#about-site" class="active">ПРО САЙТ</a>
+            <a href="http://localhost:3000/2_gallery.html">ГАЛЕРЕЯ</a>
+            <a href="1_main.html#news">НОВИНИ</a>
+            <a href="#" id="contacts-link">КОНТАКТИ</a>
+            <a href="3_registr.html">ЗАРЕЄСТРУВАТИСЯ</a>
+        </div>
+        <div class="hamburger-menu">
+            <img src="image/hamburger-icon.png" alt="Menu">
+        </div>
+    </header>
+    <!-- Мобільне меню -->
+    <div class="mobile-menu">
+        <div class="menu-header">
+            <span class="logo">EXPLORE U</span>
+            <span class="close">&times;</span>
+        </div>
+        <nav class="mobile-nav">
+            <a href="1_main.html#about-site" class="active">ПРО САЙТ</a>
+            <a href="http://localhost:3000/2_gallery.html">ГАЛЕРЕЯ</a>
+            <a href="1_main.html#news">НОВИНИ</a>
+            <a href="#" id="contacts-link-mobile">КОНТАКТИ</a>
+            <a href="3_registr.html">ЗАРЕЄСТРУВАТИСЯ</a>
+        </nav>
+    </div>
+    <!-- Контакти -->
+    <div id="contacts-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Контакти</h2>
+            <p>Телефон: +380 98 85 ** ***</p>
+            <p>Email: info@example.com</p>
+            <p>Адреса: м. Полтава ♥</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const modal = document.getElementById('contacts-modal');
+            const btn = document.getElementById('contacts-link');
+            const btnMobile = document.getElementById('contacts-link-mobile');
+            const spans = document.getElementsByClassName('close');
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            // Відкриття модального вікна "Контакти" при натисканні на посилання
+            if (btn) {
+                btn.onclick = function(event) {
+                    event.preventDefault();
+                    modal.style.display = 'block';
+                    mobileMenu.style.display = 'none'; // Закриття мобільного меню після відкриття вікна "Контакти"
+                }
+            }
+            // Відкриття модального вікна "Контакти" при натисканні на посилання у мобільному меню
+            if (btnMobile) {
+                btnMobile.onclick = function(event) {
+                    event.preventDefault();
+                    modal.style.display = 'block';
+                    mobileMenu.style.display = 'none'; // Закриття мобільного меню після відкриття вікна "Контакти"
+                }
+            }
+            // Закриття модального вікна "Контакти" при натисканні на кнопку "Закрити" або хрестик
+            Array.from(spans).forEach(span => {
+                span.onclick = function() {
+                    modal.style.display = 'none';
+                    mobileMenu.style.display = 'none'; // Закриття мобільного меню при натисканні на закриття
+                }
+            });
+            // Закриття модального вікна "Контакти" при натисканні на область поза вікном
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    mobileMenu.style.display = 'none'; // Закриття мобільного меню при натисканні на закриття
+                }
+            }
+            // Відкриття та закриття мобільного меню при натисканні на гамбургер
+            if (hamburger) {
+                hamburger.onclick = function() {
+                    if (mobileMenu.style.display === 'block') {
+                        mobileMenu.style.display = 'none';
+                    } else {
+                        mobileMenu.style.display = 'block';
+                    }
+                }
+            }
+        });    
+    </script>
+
+    <!--блок з каруселлю Слайдер-->
+    <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/kyiv.jpg" class="d-block w-100" alt="Київська Лавра">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>KYIV</h5>
+                    <p>ЛАСКАВО ПРОСИМО ДО МАЛЬОВНИЧОЇ СТОЛИЦІ, ДЕ КОЖЕН КУТОК ПРИХОВУЄ <br>
+                    СВОЮ УНІКАЛЬНУ ІСТОРІЮ. ВУЛИЧКИ, ЩО МІСТЯТЬ ТИСЯЧУ ТАЄМНИЦЬ, <br>
+                    І ВИДИ, ЯКІ ЗАЧАРОВУЮТЬ СВОЄЮ КРАСОЮ, СТВОРЮЮТЬ <br>
+                    НЕЗАБУТНІЙ ОБРАЗ ЦЬОГО МІСЦЯ. ВІДКРИЙ ДЛЯ СЕБЕ КИЇВ...<br>
+                    </p>
+                    <button class="btn1">ДОСЛІДИТИ</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="image/lviv.jpg" class="d-block w-100" alt="Львівська площа Ринок">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>LVIV MARKET SQUARE</h5>
+                    <p>ЗАЗИРНІТЬ НА ПЛОЩУ РИНОК – СЕРЦЕ ЛЬВОВА, <br>ДЕ КОЖНА МИТЬ ДИХАЄ ІСТОРІЄЮ І НЕПОВТОРНОЮ АТМОСФЕРОЮ.</p>
+                    <button class="btn2">ДОСЛІДИТИ</button>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="image/carpatians.jpg" class="d-block w-100" alt="Карпати">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>CARPATHIANS</h5>
+                    <p>ВІДЧУЙТЕ СПРАВЖНЮ МАГІЮ КАРПАТ НА ПОЛОНИНІ БОРЖАВА: <br>НЕЗАБУТНІ ПАНОРАМИ, КРИШТАЛЕВЕ ПОВІТРЯ ТА ГАРМОНІЯ ПРИРОДИ, <br>ЯКА ЗАЧАРОВУЄ З ПЕРШОГО ПОГЛЯДУ.</p>
+                    <button class="btn3">ДОСЛІДИТИ</button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- 2 блок -->
+    <div id="news" class="highlighted-places">
+        <h2>Найцікавіші місця</h2>
+        <hr>
+    </div>
+    <div class="photos-container">
+        <div>
+            <img src="image/image1.jpg" alt="Photo 1" class="photo">
+            <div class="caption">
+                <h6>Херсонська область</h6>
+                <p>Станіславський канйон
+                    <br>На березі Дніпро-Бузького лиману, 
+                    <br>серед степового краю, розкинулися
+                    <br>ці неймовірні гірські утворення.</p>
+            </div>
+        </div>
+        <div>
+            <img src="image/image2.jpg" alt="Photo 2" class="photo">
+            <div class="caption">
+                <h6>Чернівецька область</h6>
+                <p>Радіолокаційна станція «Памір» 
+                    <br>на горі Томнатик (1565 м) -
+                    <br>білі куполи, які контролювали 
+                    <br>повітряний простір над Європою.</p>
+            </div>
+        </div>
+        <div>
+            <img src="image/image3.jpg" alt="Photo 3" class="photo">
+            <div class="caption">
+                <h6>Терпнопільська область</h6>
+                <p>Оптимістична гіпсова печера -
+                    <br>її занесено до «Книги рекордів <br>Гіннеса», як найдовшу <br>у світі гіпсову печеру.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 блок -->
+    <div id="about-site" class="about-site">
+            <img src="image/image4.jpg" class="about_jpg">
+        <div class="about-text">
+            <h1 class="digit-title">ПРО САЙТ</h1>
+                <p class="digit-text">НАШ САЙТ – ЦЕ ВАШ ПРОВІДНИК У СВІТ ПОДОРОЖЕЙ ТА ВІДКРИТТІВ НАЙЦІКАВІШИХ МІСЦЬ УКРАЇНИ.<br>МИ ПРАГНЕМО ПОПУЛЯРИЗУВАТИ УКРАЇНСЬКУ КУЛЬТУРУ, ПРИРОДНІ БАГАТСТВА ТА ІСТОРИЧНІ ПАМ'ЯТКИ, НАДАЮЧИ ВАМ НАЙАКТУАЛЬНІШУ ІНФОРМАЦІЮ 
+                ПРО ВИЗНАЧНІ МІСЦЯ, ЯКІ ВАРТО ВІДВІДАТИ. 
+                <br>ВІД СТАРОВИННИХ ЗАМКІВ ТА МАЛЬОВНИЧИХ КАРПАТСЬКИХ ПОЛОНИН ДО СУЧАСНИХ УРБАНІСТИЧНИХ КРАЄВИДІВ КИЄВА. <br>МИ ПОКАЖЕМО ВАМ ВСЮ КРАСУ ТА РІЗНОМАНІТНІСТЬ НАШОЇ КРАЇНИ.
+                </p>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+    <p class="footer-text">Made by ANASTASIIA KURYLEKH
+        <br>POLTAVA 2024
+        <div class="image_icons hide-on-mobile">
+            <a href="https://www.facebook.com/?locale=uk_UA"><img src="image/facebook.png" alt="Facebook" width="35" height="35"></a>
+            <a href="https://www.instagram.com/ukrainer_net/"><img src="image/instagram.png" alt="Instagram" width="30" height="30"></a>
+            <a href="https://www.youtube.com/@ukrainernet"><img src="image/youtube.png" alt="YouTube" width="35" height="35"></a>
+        </div>
+    </div>
+
+    <!-- Підключення Bootstrap JS та залежностей з BootstrapCDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

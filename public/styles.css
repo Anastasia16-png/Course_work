@@ -1,0 +1,477 @@
+.carousel-item img {
+    max-width: 100%; 
+    height: 100vh; 
+    object-fit: cover; 
+}
+.container {
+    display: flex;
+    justify-content: space-between; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    height: 80px; 
+    padding-left: 70px; 
+    padding-right: 70px; 
+    position: fixed; 
+    top: 30px; 
+    left: 90px;
+    right: 90px;
+    z-index: 1000; /* відображення поверх інших елементів */
+}    
+.logo {
+    padding-top: 24px; 
+    color: #000000; 
+    font-family: "Red Hat Text"; 
+    font-weight: bold; 
+    margin-left: 70px; 
+    font-size: 25px;
+}
+/*Меню*/
+.info {
+    margin-right: 70px; 
+    padding-top: 29px; 
+}
+.info a {
+    margin-left: 40px; 
+    font-family: "Nunito"; 
+    font-size: 17;
+    color: #000000;
+    text-decoration: none;
+}
+.carousel-caption h5 {
+    color: #ffffff; 
+    font-family: "Red Hat Text"; 
+    font-weight: bold; 
+    font-size: 48px; 
+    letter-spacing: 40%; 
+    margin-bottom: 15px; 
+}
+.carousel-caption p {
+    color: #ffffff; 
+    font-family: "Red Hat Text"; 
+    font-weight: bold; 
+    font-size: 14px; 
+    letter-spacing: 20%; 
+    margin-bottom: 15px; 
+}
+.carousel-caption button {
+    border: none;
+}
+.btn1, .btn2, .btn3 {
+    background-color: #ffffff; 
+    color: #000000; 
+    font-family: "Red Hat Text"; 
+    font-weight: bold; 
+    font-size: 14px; 
+    letter-spacing: 20%; 
+    width: 160px; 
+    height: 40px; 
+    cursor: pointer; 
+    margin-bottom: 15px;
+}
+.btn1:hover, .btn2:hover, .btn3:hover{
+    background-color: #b3b3b3;
+    color: #ffffff;
+}
+/*другий блок*/
+.highlighted-places {
+    text-align: center; 
+    margin-top: 100px; 
+}
+.highlighted-places h2 {
+    font-family: "Nunito";
+    font-size: 32px;
+    font-weight: bold;
+} 
+/*риска*/
+.highlighted-places hr {
+    width: 200px; 
+    height: 1px; 
+    background-color: #000000; 
+    margin: 40px auto; /* Відстань від заголовка, автоматичне центрування */
+    border: none; 
+}
+.photos-container {
+    display: flex; /* Розміщення фото в одному рядку */
+    justify-content: space-between; 
+    margin-top: 40px; 
+    margin-left: 88px; 
+    margin-right: 88px; 
+}
+.photo {
+    width: 345px; 
+    height: 240px; 
+}
+.photo:not(:last-child) {
+    margin-right: 35px; 
+}
+.caption {
+    margin-top: 50px; /* Відстань від фото до локації */
+    font-family: "Nunito";
+    font-weight: medium;
+}
+.caption h6 {
+    margin-bottom: 10px; /* Відстань від локації до підпису*/
+    font-size: 16px;
+}
+.caption p {
+    font-size: 24px;
+}
+/*3*/
+.about-site {
+    display: flex;
+    align-items: center; 
+}
+.about_jpg {
+    width: 650px;
+    height: 433px;
+    margin-left: auto; 
+    flex-shrink: 0; /* Заборона стискання картинки */
+    margin-top: 150px; 
+    margin-left: 88px; 
+    margin-right: 128px; 
+}
+.about-text {
+    margin-right: 88px;
+}
+.digit-title {
+    margin-top: 95px;
+    font-family: "Nunito";
+    font-size: 32px;
+    font-weight: bold;
+}
+.digit-text {
+    margin-top: 50px;
+    font-family: "Nunito";
+    font-size: 16px;
+    font-weight: bold;
+}
+/*footer*/
+.footer {
+    background-color: #474646; 
+    height: 135px; 
+    margin-top: 150px; 
+    color: #ffffff; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 88px; 
+}
+.footer-text {
+    position: absolute; 
+    left: 88px;
+    font-size: 17px; 
+    font-weight: medium; 
+    font-family: "Nunito";
+}
+.image_icons {
+    display: flex; 
+    justify-content: center; 
+    margin: 0 550px; 
+}
+.image_icons a {
+    margin: 0 30px; 
+}
+/* Стилі для спливаючого вікна */
+.modal {
+    display: none; /* Сховати вікно за замовчуванням */
+    position: fixed; 
+    z-index: 1; /*відображення поверх інших елементів */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* прокрутка */
+    background-color: rgb(0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.4); 
+    font-family: "Nunito";
+}
+.modal h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+/* Стилі для вмісту модального вікна */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+    animation: fadeIn 0.3s; 
+}
+/* Стилі для кнопки закриття */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Анімація появи вікна */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Стилі для гамбургер меню та медіа-запити */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.hamburger-menu img {
+    width: 24px;
+    height: 17px;
+}
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    padding-top: 100px; 
+}
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+.mobile-menu .logo {
+    font-family: "Red Hat Text";
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px; 
+}
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 80px; 
+}
+.mobile-nav a {
+    font-family: "Nunito";
+    font-size: 17px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    margin: 20px 0; 
+    text-align: center;
+}
+.mobile-menu .close {
+    font-size: 24px;
+    cursor: pointer;
+}
+/* медіа запити - адаптивність */
+/* Стилі для телефонів (ширина екрану 768px або менше) */
+@media (max-width: 768px) {
+    .info {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+        margin-top: 26px;
+        margin-right: 15px;
+    }
+    .container {
+        width: 330px;
+        height: 70px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .logo {
+        margin-left: 15px;
+        margin-bottom: 20px;
+    }
+    .carousel-caption {
+    display: block !important; /* .carousel-caption видиме */
+    }
+    .carousel-caption h5 {
+        font-size: 32px; 
+    }
+    .carousel-caption p {
+        font-size: 12px; 
+    }
+    .carousel-caption button {
+        font-size: 12px; 
+        padding: 5px 10px; 
+        width: 130px; 
+        height: 30px; 
+    }
+    /*другий блок*/
+    .highlighted-places h2 {
+        margin-top: 50px;
+    }
+    .highlighted-places h2 {
+        font-size: 25px;
+        margin-top: 20px; 
+        margin-bottom: 5px;
+    }
+    .photos-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* по центру по горизонталі */
+        max-width: 300px;
+        margin: 0 auto; /* центрування контейнера */
+    }
+    .photo {
+        width: 250px; 
+        height: 160px; 
+        content: center;
+        margin-right: 0px; 
+        margin-left: 170px;
+    }
+    .caption {
+        padding: 5px; 
+        margin-top: 10px; 
+        text-align: center;
+        margin-left: 170px;
+    }
+    .caption h6 {
+        font-size: 8px; 
+        margin-bottom: 5px; 
+    }
+    .caption p {
+        font-size: 10px; 
+    }
+/*третій блок */
+    #about-site {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        padding: 20px;
+    }
+    .about-text {
+        order: 1;
+        max-width: 250px; 
+        margin: 0 0 0 0; 
+    }
+    .about-text h1 {
+        margin-top: 50px;
+        margin-bottom: 0;
+    }
+    .about-text p {
+        margin-top: 30px;
+    }
+    .about_jpg {
+        order: 2;
+        width: 250px;
+        height: 230px;
+        margin-left: 100px;
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+    .digit-title {
+        font-size: 20px;
+    }
+    .digit-text {
+        font-size: 10px;
+    }
+    .footer {
+        margin-top: 50px;
+    }
+    .footer-text {
+        font-size: 15px; 
+        margin-bottom: 0;
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+}
+@media (max-width: 1200px) {
+    .info {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+        margin-top: 26px;
+        margin-right: 15px;
+    }
+    .container {
+        width: calc(100% - 82px);
+        height: 70px;
+        left: 20px;
+        right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    .logo {
+        margin-left: 15px;
+        margin-bottom: 20px;
+    }
+    .mobile-menu .close {
+        font-size: 24px;
+        cursor: pointer;
+        align-self: flex-end; /* Розміщення на краю вправо */
+        margin-right: 40px; 
+        top: 0px;
+    }
+    .modal-content {
+        width: 80%; /* Зменшення ширини вікна для мобільної версії */
+        margin: 50% auto;
+    }
+    /*2*/
+    .photos-container {
+        margin-left: 15px; 
+        margin-right: 15px; 
+    }
+    .photo {
+        width: 250px; 
+        height: 150px; 
+        margin-right: 0;
+    }
+    .caption {
+        margin-top: 20px; 
+        text-align: center; 
+    }
+    .caption h6 {
+        margin-bottom: 5px; 
+        font-size: 12px; 
+        width: 250px;
+    }
+    .caption p {
+        font-size: 14px; 
+        width: 250px;
+    }
+    /*3*/
+    .about_jpg {
+        width: 250px; 
+        height: 230px; 
+        margin-top: 100px;
+        margin-right: 100px;
+    }
+    .digit-title {
+        font-size: 14px; 
+    }
+    .digit-text {
+        font-size: 10px; 
+    }
+    .about-text h1 {
+        margin-top: 100px; 
+    }
+    .about-text p {
+        margin-top: 20px;
+    }
+    /*footer*/
+    .hide-on-mobile {
+        display: none;
+    }
+}
